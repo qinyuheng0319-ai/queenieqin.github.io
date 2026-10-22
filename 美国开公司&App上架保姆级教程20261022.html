@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>海外广告代理与短剧出海全链路合规指南 | NMG Global Compliance Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
+          },
+          colors: {
+            nmg: {
+              bg: '#0d0e12',
+              card: '#15171e',
+              cardHover: '#1c1f28',
+              border: '#262936',
+              red: '#e11d48',
+              redLight: '#fb7185',
+              redDark: '#9f1239',
+              gold: '#f59e0b',
+              emerald: '#10b981',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0d0e12;
+      color: #e2e8f0;
+      scroll-behavior: smooth;
+    }
+    .red-glow {
+      box-shadow: 0 0 25px -5px rgba(225, 29, 72, 0.25);
+    }
+    .card-gradient {
+      background: linear-gradient(145deg, #161821 0%, #11131a 100%);
+    }
+    .active-tab {
+      background-color: #e11d48 !important;
+      color: #ffffff !important;
+      border-color: #e11d48 !important;
+      box-shadow: 0 4px 14px rgba(225, 29, 72, 0.4);
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #ffffff; color: #000000; }
+      .module-section { display: block !important; page-break-after: always; }
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #0d0e12; }
+    ::-webkit-scrollbar-thumb { background: #262936; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #e11d48; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-nmg-red selection:text-white">
+
+  <!-- Top Sticky Header -->
+  <header class="sticky top-0 z-50 bg-[#0d0e12]/95 backdrop-blur-md border-b border-nmg-border no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between py-3 gap-3">
+        
+        <!-- Brand Logo & Title -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-nmg-red to-nmg-redDark flex items-center justify-center font-black text-white text-xl shadow-lg">
+            N
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-extrabold tracking-widest uppercase text-nmg-red">NMG Global 2026</span>
+              <span class="px-2 py-0.5 text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded">内部合规实操库</span>
+            </div>
+            <h1 class="text-base sm:text-lg font-extrabold text-white tracking-tight">
+              海外广告代理与短剧出海全链路合规门户
+            </h1>
+          </div>
+        </div>
+
+        <!-- Search & Action Tools -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <div class="relative flex-1 sm:w-64">
+            <input 
+              type="text" 
+              id="globalSearch" 
+              oninput="handleSearch(this.value)"
+              placeholder="搜索：香港公司、LLC、苹果税、5472..." 
+              class="w-full bg-[#161821] border border-nmg-border focus:border-nmg-red rounded-lg pl-9 pr-3 py-1.5 text-xs text-white placeholder-slate-500 outline-none transition"
+            >
+            <svg class="w-4 h-4 text-slate-500 absolute left-3 top-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+
+          <button onclick="copyExecutiveSummary()" class="px-3 py-1.5 rounded-lg bg-[#1c1f28] hover:bg-[#262a36] border border-nmg-border text-xs font-semibold text-slate-200 flex items-center gap-1.5 transition shrink-0" title="一键复制向老板汇报的金句摘要">
+            <svg class="w-3.5 h-3.5 text-nmg-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+            </svg>
+            <span>复制汇报摘要</span>
+          </button>
+
+          <button onclick="window.print()" class="px-3 py-1.5 rounded-lg bg-nmg-red hover:bg-rose-700 text-xs font-bold text-white flex items-center gap-1.5 transition shrink-0">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+            </svg>
+            <span class="hidden sm:inline">打印/导出PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Module Navigation Tabs -->
+      <div class="flex items-center gap-2 overflow-x-auto py-2 border-t border-nmg-border/60 text-xs font-bold">
+        <button onclick="switchModule('all')" id="tab-all" class="nav-tab active-tab px-3.5 py-1.5 rounded-md border border-nmg-border bg-[#15171e] text-slate-300 transition whitespace-nowrap">
+          全部展开 (汇报视图)
+        </button>
+        <button onclick="switchModule('mod1')" id="tab-mod1" class="nav-tab px-3.5 py-1.5 rounded-md border border-nmg-border bg-[#15171e] text-slate-300 hover:text-white transition whitespace-nowrap">
+          01. 香港 vs 美国公司上架对比
+        </button>
+        <button onclick="switchModule('mod2')" id="tab-mod2" class="nav-tab px-3.5 py-1.5 rounded-md border border-nmg-border bg-[#15171e] text-slate-300 hover:text-white transition whitespace-nowrap">
+          02. 零签证开美国公司与税务逻辑
+        </button>
+        <button onclick="switchModule('mod3')" id="tab-mod3" class="nav-tab px-3.5 py-1.5 rounded-md border border-nmg-border bg-[#15171e] text-slate-300 hover:text-white transition whitespace-nowrap">
+          03. 苹果/谷歌上架流程与5大红线
+        </button>
+        <button onclick="switchModule('mod4')" id="tab-mod4" class="nav-tab px-3.5 py-1.5 rounded-md border border-nmg-border bg-[#15171e] text-slate-300 hover:text-white transition whitespace-nowrap flex items-center gap-1">
+          <span>04. 官方政策/补贴/办理直达库</span>
+          <span class="px-1.5 py-0.2 bg-amber-500/20 text-amber-300 rounded text-[10px]">含外链</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-emerald-600 text-white px-4 py-3 rounded-xl shadow-2xl border border-emerald-400/40 text-xs font-bold flex items-center gap-2">
+    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+    </svg>
+    <span id="toastMsg">已复制到剪贴板！</span>
+  </div>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+    <!-- Executive Banner -->
+    <section class="rounded-2xl bg-gradient-to-r from-[#1a1016] via-[#151722] to-[#12151f] border border-nmg-red/40 p-6 sm:p-8 red-glow relative overflow-hidden">
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+        <div class="lg:col-span-2 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-nmg-red/20 border border-nmg-red/40 text-nmg-redLight text-xs font-bold">
+            <span>🎯 致管理层与出海立项组：零门槛大白话实操手册</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black text-white leading-tight">
+            中国人无美国签证，如何合规100%控股美国公司并打通短剧&广告代理出海？
+          </h2>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            本门户汇总美国州务卿公司法、美国国税局（IRS）非居民外资税务法案、以及 Apple App Store / Google Play 最新开发者合规政策。所有提及的<strong>税收减免、15%抽成补贴、税表下载与官方验证通道</strong>均附带官方一手原出处链接。
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-[#0d0e12]/80 border border-nmg-border p-4 rounded-xl text-center">
+            <div class="text-2xl font-black text-nmg-red">0 签证</div>
+            <div class="text-xs text-slate-400 mt-1">纯远程100%华人控股</div>
+          </div>
+          <div class="bg-[#0d0e12]/80 border border-nmg-border p-4 rounded-xl text-center">
+            <div class="text-2xl font-black text-emerald-400">0 联邦税</div>
+            <div class="text-xs text-slate-400 mt-1">LLC非美实地经营合规免税</div>
+          </div>
+          <div class="bg-[#0d0e12]/80 border border-nmg-border p-4 rounded-xl text-center">
+            <div class="text-2xl font-black text-amber-400">15% 抽成</div>
+            <div class="text-xs text-slate-400 mt-1">双端商店小微企业官方减免</div>
+          </div>
+          <div class="bg-[#0d0e12]/80 border border-nmg-border p-4 rounded-xl text-center">
+            <div class="text-2xl font-black text-sky-400">175+ 国家</div>
+            <div class="text-xs text-slate-400 mt-1">一点注册全球应用商店分发</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         MODULE 1: 香港公司 vs 美国公司 上架美区App深度对比
+    ====================================================================== -->
+    <section id="mod1" class="module-section space-y-6 searchable-block">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b-2 border-nmg-red pb-3 gap-2">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-nmg-red">Module 01 · Jurisdiction & App Store Distribution</span>
+          <h2 class="text-xl sm:text-2xl font-black text-white mt-0.5">核心解答：App上架地区与公司注册地必须一致吗？</h2>
+        </div>
+        <span class="text-xs text-slate-400">香港分公司 vs 美国新公司全维度PK</span>
+      </div>
+
+      <!-- Core Plain-Language Answer Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="card-gradient border-l-4 border-l-emerald-500 border border-nmg-border rounded-xl p-5 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-xs font-bold">核心结论 1</span>
+            <span class="text-xs text-slate-400">全球分发机制</span>
+          </div>
+          <h3 class="text-base font-bold text-white">App上架地区与公司注册地【完全不需要一致】！</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            无论是苹果（Apple App Store）还是谷歌（Google Play），采用的都是<strong>“一点注册、全球发行”</strong>机制。不管你用中国香港公司、美国公司还是新加坡公司注册开发者账号，只要在后台勾选<strong>“美国（United States）”</strong>或全球 175+ 个国家地区，美国观众就能在美区商店正常搜索、下载你的短剧 App 并用美金充值。
+          </p>
+        </div>
+
+        <div class="card-gradient border-l-4 border-l-nmg-red border border-nmg-border rounded-xl p-5 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded bg-nmg-red/20 text-nmg-redLight text-xs font-bold">核心结论 2</span>
+            <span class="text-xs text-slate-400">为什么还要开美国公司？</span>
+          </div>
+          <h3 class="text-base font-bold text-white">香港公司能上美区，但【美国本土公司】在收款与投流上优势巨大！</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            既然集团在香港已有分公司，直接用香港公司也能把短剧上架美区。但为什么头部短剧大厂依然要在美国注册一家 LLC？核心差异不在“能不能上架”，而在<strong>① 网页端投流（Web2App）美国本土 Stripe 扣款成功率、② 税务填表繁琐度、③ Google 商店地址公示的欧美用户信任度</strong>。
+          </p>
+        </div>
+      </div>
+
+      <!-- Detailed Comparison Table: HK Co vs US LLC -->
+      <div class="card-gradient border border-nmg-border rounded-xl overflow-hidden">
+        <div class="px-5 py-4 border-b border-nmg-border flex items-center justify-between bg-[#181b24]">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <span>📊 香港公司主体 vs 美国公司主体（美区短剧 & 广告出海深度对比）</span>
+          </h3>
+          <span class="text-xs text-nmg-redLight font-semibold">汇报重点对比表</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="bg-[#12141c] text-slate-300 border-b border-nmg-border uppercase">
+                <th class="p-4 font-bold w-1/5">对比维度</th>
+                <th class="p-4 font-bold w-2/5 text-amber-400">🇭🇰 使用【香港公司】注册上架</th>
+                <th class="p-4 font-bold w-2/5 text-emerald-400">🇺🇸 使用【美国 LLC 公司】注册上架</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-nmg-border/60 text-slate-300">
+              <tr class="hover:bg-white/[0.02]">
+                <td class="p-4 font-bold text-white">1. 美区上架权限</td>
+                <td class="p-4"><strong class="text-emerald-400">完全可以</strong>。支持勾选美区及全球175+国家上架。</td>
+                <td class="p-4"><strong class="text-emerald-400">完全可以</strong>。支持勾选美区及全球175+国家上架。</td>
+              </tr>
+              <tr class="hover:bg-white/[0.02]">
+                <td class="p-4 font-bold text-white">2. 苹果/谷歌打款预扣税<br><span class="text-[11px] font-normal text-slate-400">(Withholding Tax)</span></td>
+                <td class="p-4">
+                  需填写复杂的 <strong>W-8BEN-E 外国企业税表</strong>。<br>
+                  <span class="text-slate-400">注：因香港与美国没有签订双边税收协定，若款项被界定为“版税”会有30%预扣税风险；但实操中App内购（IAP）属商业服务所得，正确勾选Chapter 3状态后通常也是0预扣，但填错极易被冻款。</span>
+                </td>
+                <td class="p-4">
+                  直接填写最简单的美国本土 <strong>W-9 税表</strong>（仅需填入9位EIN税号）。<br>
+                  <strong class="text-emerald-400">100% 零预扣税</strong>，苹果和谷歌不扣一分钱过路税，全额美金打入美国对公银行账户。
+                </td>
+              </tr>
+              <tr class="hover:bg-white/[0.02]">
+                <td class="p-4 font-bold text-white">3. H5/网页短剧投流收单<br><span class="text-[11px] font-normal text-slate-400">(Stripe / PayPal 支付成功率)</span></td>
+                <td class="p-4">
+                  只能开通<strong>香港 Stripe 账户</strong>。<br>
+                  美国观众刷美国本土信用卡付美金时，属于“跨境收单”，易触发美国发卡行风控拦截，<strong>支付成功率通常比美国本土号低 5%~10%</strong>，且跨境货币转换费更高。
+                </td>
+                <td class="p-4">
+                  直接开通<strong>美国本土 Stripe 账户</strong>。<br>
+                  走美国本土清算通道，支持美国本地卡、Apple Pay、Cash App，<strong>扣款成功率最高</strong>（做 TikTok/FB 网页跳App投流 W2A 必选美国主体）。
+                </td>
+              </tr>
+              <tr class="hover:bg-white/[0.02]">
+                <td class="p-4 font-bold text-white">4. 商店页面公示与信任度<br><span class="text-[11px] font-normal text-slate-400">(Google Play 强制新规)</span></td>
+                <td class="p-4">
+                  Google Play 会在应用详情页公开显示你的<strong>香港公司地址（Hong Kong）</strong>。部分欧美本土用户在订阅扣费争议时对境外主体较为敏感。
+                </td>
+                <td class="p-4">
+                  公开显示<strong>美国本土公司名称与州地址</strong>，在欧美用户及广告平台审核员眼中属于“美国本土企业”，品牌信任度高、客诉封号率更低。
+                </td>
+              </tr>
+              <tr class="hover:bg-white/[0.02]">
+                <td class="p-4 font-bold text-white">5. 广告户与虚拟信用卡</td>
+                <td class="p-4">可开 Airwallex / 万里汇香港卡，但无法申请美国本土水星银行（Mercury）等纯美区高权重卡段。</td>
+                <td class="p-4">可开 <strong>Mercury（水星银行）</strong> 等纯正美国银行账户，免费生成上百张 <strong>美国本土 4/5 开头卡段虚拟卡</strong>，绑 Meta/TikTok 广告户最稳。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="p-4 bg-nmg-red/10 border-t border-nmg-red/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div class="text-xs text-slate-200">
+            <strong class="text-nmg-redLight">💡 给老板的黄金组合建议：</strong> 既然集团已有香港分公司，最完美的架构是 <strong>【用香港公司 100% 控股一家新注册的美国怀俄明州 LLC】</strong>。由美国 LLC 负责上架美区短剧 App、开通美国本土 Stripe 收款和申请 Mercury 虚拟卡投流；赚到的美金随时免税分红划转回香港公司资金池！
+          </div>
+          <a href="https://support.google.com/googleplay/android-developer/answer/13628312" target="_blank" rel="noopener noreferrer" class="shrink-0 px-3 py-1.5 rounded bg-nmg-red text-white text-xs font-bold hover:bg-rose-700 transition flex items-center gap-1">
+            <span>查看Google地址公示官方新规</span>
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         MODULE 2: 零签证远程开美国公司全指南（选型、税务与5步落地）
+    ====================================================================== -->
+    <section id="mod2" class="module-section space-y-6 searchable-block">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b-2 border-nmg-red pb-3 gap-2">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-nmg-red">Module 02 · US Entity Formation & Tax Logic</span>
+          <h2 class="text-xl sm:text-2xl font-black text-white mt-0.5">零签证远程开美国公司：3种控股玩法与税务逻辑拆解</h2>
+        </div>
+        <span class="text-xs text-slate-400">无需赴美 · 全程线上 1-4 周拿齐执照与税号</span>
+      </div>
+
+      <!-- 3 Holding Structures Interactive Selector -->
+      <div class="space-y-3">
+        <h3 class="text-sm font-bold text-slate-200">一、 给老板做选择题：3种海外公司控股架构（点击卡片高亮对比）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          
+          <!-- Playbook 1 -->
+          <div class="card-gradient border border-nmg-border hover:border-nmg-red rounded-xl p-5 flex flex-col justify-between transition">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded bg-sky-500/20 text-sky-300 text-xs font-bold">玩法一：轻装试水</span>
+                <span class="text-xs font-bold text-emerald-400">0 联邦所得税</span>
+              </div>
+              <h4 class="text-base font-extrabold text-white">老板个人直接持股美国 LLC</h4>
+              <p class="text-xs text-slate-400">老板拿自己的中国护照直接100%持股美国 LLC，在法律上与国内新美集团完全独立。</p>
+              <ul class="text-xs text-slate-300 space-y-1.5 pt-2 border-t border-nmg-border/60">
+                <li>✅ <strong>最快最省：</strong>手续极简，不融资做短剧平台首选。</li>
+                <li>✅ <strong>合法免税：</strong>只要人在国内远程干活（美国无办公室无雇员），赚的美金在美国<strong>合法免交联邦所得税</strong>。</li>
+                <li>⚠️ <strong>短板：</strong>国内公司不能直接大额公对公打投资款过去（需走业务合同或海外资金启动）。</li>
+              </ul>
+            </div>
+            <div class="mt-4 pt-3 border-t border-nmg-border/50 text-[11px] text-slate-400">
+              适用：快速组建独立短剧买量/收款小分队
+            </div>
+          </div>
+
+          <!-- Playbook 2 -->
+          <div class="card-gradient border-2 border-nmg-red rounded-xl p-5 flex flex-col justify-between relative red-glow">
+            <div class="absolute -top-3 right-4 px-2.5 py-0.5 bg-nmg-red text-white text-[10px] font-black uppercase rounded shadow">
+              行业最流行 · 黄金架构
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded bg-nmg-red/20 text-nmg-redLight text-xs font-bold">玩法二：香港搭桥</span>
+                <span class="text-xs font-bold text-amber-400">资金自由调拨</span>
+              </div>
+              <h4 class="text-base font-extrabold text-white">香港分公司 ➔ 100%控股美国 LLC</h4>
+              <p class="text-xs text-slate-400">利用集团现成的香港公司作为母公司，去美国怀俄明州或特拉华州生一个全资 LLC 子公司。</p>
+              <ul class="text-xs text-slate-300 space-y-1.5 pt-2 border-t border-nmg-border/60">
+                <li>✅ <strong>进退自如：</strong>香港无外汇管制，美国 LLC 收到的短剧充值和广告费可随时划转回香港。</li>
+                <li>✅ <strong>风险隔离：</strong>完美隔离国内主体与美国国税局（IRS）的直接穿透审查。</li>
+                <li>✅ <strong>大厂授信：</strong>香港+美国双主体配合，极易找 Meta/Google/TikTok 拿高额月结授信。</li>
+              </ul>
+            </div>
+            <div class="mt-4 pt-3 border-t border-nmg-border/50 text-[11px] text-nmg-redLight font-bold">
+              适用：已有香港布局、追求税务安全与资金效率
+            </div>
+          </div>
+
+          <!-- Playbook 3 -->
+          <div class="card-gradient border border-nmg-border hover:border-nmg-red rounded-xl p-5 flex flex-col justify-between transition">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded bg-purple-500/20 text-purple-300 text-xs font-bold">玩法三：跨国并表/办绿卡</span>
+                <span class="text-xs font-bold text-slate-400">21% 企业税</span>
+              </div>
+              <h4 class="text-base font-extrabold text-white">国内母公司 ➔ 控股美国 C-Corp</h4>
+              <p class="text-xs text-slate-400">用国内现有的广告或短剧主体作为母公司，办理 ODI 备案后，在美国注册股份有限公司（C-Corp）。</p>
+              <ul class="text-xs text-slate-300 space-y-1.5 pt-2 border-t border-nmg-border/60">
+                <li>✅ <strong>业绩并表：</strong>海外营收名正言顺并入国内集团总报表。</li>
+                <li>✅ <strong>高管签证：</strong>美国公司实地运营满1年后，老板可申请 <strong>L-1A 跨国高管签证</strong>赴美并走 EB-1C 拿绿卡！</li>
+                <li>⚠️ <strong>短板：</strong>利润需交 21% 美国联邦企业税，且国内打钱出去需办商务部 ODI 备案。</li>
+              </ul>
+            </div>
+            <div class="mt-4 pt-3 border-t border-nmg-border/50 text-[11px] text-slate-400">
+              适用：计划未来融资上市、或老板有赴美定居规划
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Tax Logic Breakdown: Domestic vs Foreign & State Comparison -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+        <!-- Left: ETBUS Tax Logic -->
+        <div class="card-gradient border border-nmg-border rounded-xl p-5 space-y-4">
+          <div class="flex items-center justify-between border-b border-nmg-border pb-3">
+            <h3 class="text-sm font-bold text-white">二、 LLC 的“透明人”税务逻辑（境内 vs 境外业务）</h3>
+            <a href="https://www.irs.gov/individuals/international-taxpayers/effectively-connected-income-eci" target="_blank" rel="noopener noreferrer" class="text-xs text-nmg-redLight hover:underline flex items-center gap-1">
+              <span>IRS官方ECI税法出处</span>
+              <span>↗</span>
+            </a>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            大白话讲：LLC 公司自己不交企业所得税，利润直接穿透给背后的老板。至于要不要给美国交税，美国国税局（IRS）只看一条核心标准——<strong>你有没有在美国本土“实地干活”（简称 ETBUS 原则）</strong>：
+          </p>
+          <div class="space-y-3 text-xs">
+            <div class="p-3.5 rounded-lg bg-emerald-950/30 border border-emerald-500/30 space-y-1">
+              <div class="font-bold text-emerald-400 flex items-center justify-between">
+                <span>🟢 情况 A：纯远程干活（非美国实地业务）</span>
+                <span class="px-2 py-0.5 bg-emerald-500/20 rounded text-[11px]">联邦所得税：0%</span>
+              </div>
+              <p class="text-slate-300 leading-relaxed">
+                <strong>场景：</strong>短剧剪辑、投流优化师全在北京/上海办公；虽然买的是 Meta/TikTok 广告、收的是美国观众充值的美金，但<strong>在美国没有租实体办公室、没有雇美国全职员工</strong>。<br>
+                <strong>结论：</strong>国税局认定你的劳动发生在中国，<strong>合法享受 0 联邦所得税</strong>！
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-lg bg-amber-950/30 border border-amber-500/30 space-y-1">
+              <div class="font-bold text-amber-400 flex items-center justify-between">
+                <span>🟡 情况 B：去美国本土扎根（美国境内实地业务）</span>
+                <span class="px-2 py-0.5 bg-amber-500/20 rounded text-[11px]">按 10%~37% 交税</span>
+              </div>
+              <p class="text-slate-300 leading-relaxed">
+                <strong>场景：</strong>在洛杉矶长期包场雇全职美国团队拍本土短剧、或在纽约租办公室雇美国人拉广告客户。<br>
+                <strong>结论：</strong>一旦在美国有了固定办公场所或全职员工，赚到的利润就必须按美国阶梯税率交税。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: State Selection & Red Alert Form 5472 -->
+        <div class="space-y-4">
+          <div class="card-gradient border border-nmg-border rounded-xl p-5 space-y-3">
+            <div class="flex items-center justify-between border-b border-nmg-border pb-2.5">
+              <h3 class="text-sm font-bold text-white">三、 注册州税费对比（选错州每年白扔钱）</h3>
+              <span class="text-[11px] text-slate-400">州税与联邦税相互独立</span>
+            </div>
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="text-slate-400 border-b border-nmg-border">
+                  <th class="py-2">州名称</th>
+                  <th class="py-2">州企业所得税</th>
+                  <th class="py-2">每年固定年审保护费</th>
+                  <th class="py-2">推荐度</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-nmg-border/50 text-slate-200">
+                <tr>
+                  <td class="py-2.5 font-bold text-emerald-400">怀俄明州 (Wyoming)</td>
+                  <td class="py-2.5">0%</td>
+                  <td class="py-2.5 font-bold text-emerald-400">$60 / 年</td>
+                  <td class="py-2.5">⭐⭐⭐⭐⭐ 省钱保密王</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 font-bold text-sky-400">特拉华州 (Delaware)</td>
+                  <td class="py-2.5">0% (不在当地经营)</td>
+                  <td class="py-2.5">$300 / 年</td>
+                  <td class="py-2.5">⭐⭐⭐⭐ 大厂牌面足</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 font-bold text-rose-400">加州 (California)</td>
+                  <td class="py-2.5">8.84% 起</td>
+                  <td class="py-2.5 font-bold text-rose-400">$800 / 年 (最低硬收)</td>
+                  <td class="py-2.5">❌ 千万别选 (大坑)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Form 5472 Critical Compliance Warning -->
+          <div class="rounded-xl bg-rose-950/40 border-2 border-nmg-red p-4 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-nmg-red text-white text-[11px] font-black rounded uppercase">⚠️ 内部合规一号红线：漏报重罚 $25,000</span>
+              <a href="https://www.irs.gov/forms-pubs/about-form-5472" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-nmg-redLight underline hover:text-white">
+                IRS Form 5472 官方出处 ↗
+              </a>
+            </div>
+            <h4 class="text-xs font-bold text-white">免税 ≠ 不用报税！外国人持股 25% 以上的 LLC 每年必交 Form 5472</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              哪怕你的美国 LLC 符合免税条件不用交一分钱税，甚至一年流水为 0，只要背后是中国老板或香港公司持股，每年 4 月 15 日前<strong>必须找美国会计师向国税局递交 Form 5472 + Form 1120 披露股东资金往来</strong>。如果不交或迟交，美国国税局直接开出 <strong>25,000 美元（约18万人民币）起步罚单</strong>！
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5-Step Foolproof Execution Timeline -->
+      <div class="card-gradient border border-nmg-border rounded-xl p-5 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <h3 class="text-sm font-bold text-white">四、 足不出户開美国公司“傻瓜式 5 步走”（总预算约 $600-$1,200，耗时约 3-4 周）</h3>
+          <span class="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold">
+            🎉 政策利好：美国财政部 FinCEN 已正式豁免美国本土注册企业的 BOI 受益人申报手续！
+          </span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 text-xs">
+          <div class="p-3.5 rounded-lg bg-[#11131a] border border-nmg-border space-y-1.5">
+            <div class="text-nmg-red font-black">STEP 01 · 1天</div>
+            <div class="font-bold text-white">起名 + 租独立门牌地址</div>
+            <p class="text-slate-400">准备英文名，在 Anytime Mailbox 租带独立套房号（Suite #）和租约证明的美国地址，防银行拒审。</p>
+          </div>
+          <div class="p-3.5 rounded-lg bg-[#11131a] border border-nmg-border space-y-1.5">
+            <div class="text-nmg-red font-black">STEP 02 · 3-5天</div>
+            <div class="font-bold text-white">向州政府领营业执照</div>
+            <p class="text-slate-400">提交老板中国护照扫描件，向怀俄明或特拉华州务卿递交注册，拿到电子版成立证书。</p>
+          </div>
+          <div class="p-3.5 rounded-lg bg-[#11131a] border border-nmg-border space-y-1.5">
+            <div class="text-nmg-red font-black">STEP 03 · 2-3周</div>
+            <div class="font-bold text-white">传真申请美国税号 EIN</div>
+            <p class="text-slate-400">无美国社保号需填 SS-4 表写 Foreign，传真给 IRS 国税局，拿到 CP575 税号确认信。</p>
+          </div>
+          <div class="p-3.5 rounded-lg bg-[#11131a] border border-nmg-border space-y-1.5">
+            <div class="text-nmg-red font-black">STEP 04 · 1周</div>
+            <div class="font-bold text-white">远程开美国银行+虚拟卡</div>
+            <p class="text-slate-400">线上申请 Mercury 水星银行或 Airwallex，后台免费生成几百张美国虚拟信用卡绑广告户投流。</p>
+          </div>
+          <div class="p-3.5 rounded-lg bg-[#11131a] border border-nmg-border space-y-1.5">
+            <div class="text-nmg-red font-black">STEP 05 · 1-2周</div>
+            <div class="font-bold text-white">领邓白氏编码 & 开户</div>
+            <p class="text-slate-400">免费申请 9 位 D-U-N-S 编码，正式开通苹果/谷歌商店、美国 Stripe 及 Meta/TikTok 代理商后台。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         MODULE 3: Apple App Store 与 Google Play 上架全流程与 5 大生死红线
+    ====================================================================== -->
+    <section id="mod3" class="module-section space-y-6 searchable-block">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b-2 border-nmg-red pb-3 gap-2">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-nmg-red">Module 03 · App Store & Google Play Onboarding</span>
+          <h2 class="text-xl sm:text-2xl font-black text-white mt-0.5">双端应用商店上架流程、15%抽成减免与防封号红线</h2>
+        </div>
+        <span class="text-xs text-slate-400">短剧 IAP 内购 · 自动续费订阅合规标准</span>
+      </div>
+
+      <!-- Interactive Pre-flight Checklist -->
+      <div class="card-gradient border border-nmg-border rounded-xl p-5 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-bold text-white">一、 动手上架前必须备齐的“四大金刚”自查表（可点击勾选）</h3>
+          <span id="checklistProgress" class="text-xs font-bold text-emerald-400">已完成 0 / 4 项</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+          <label class="flex items-start gap-2.5 p-3.5 rounded-lg bg-[#11131a] border border-nmg-border cursor-pointer hover:border-nmg-red transition">
+            <input type="checkbox" onchange="updateChecklist()" class="check-item mt-0.5 accent-nmg-red w-4 h-4 rounded">
+            <div>
+              <div class="font-bold text-white">1. 企业主体 + 税号 EIN</div>
+              <p class="text-slate-400 mt-1">必须注册“企业账号（Organization）”，严禁用个人号做短剧收款。</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-2.5 p-3.5 rounded-lg bg-[#11131a] border border-nmg-border cursor-pointer hover:border-nmg-red transition">
+            <input type="checkbox" onchange="updateChecklist()" class="check-item mt-0.5 accent-nmg-red w-4 h-4 rounded">
+            <div>
+              <div class="font-bold text-white">2. 邓白氏编码 (D-U-N-S)</div>
+              <p class="text-slate-400 mt-1">全球企业9位征信号，苹果与谷歌核验公司真实性的唯一硬指标。</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-2.5 p-3.5 rounded-lg bg-[#11131a] border border-nmg-border cursor-pointer hover:border-nmg-red transition">
+            <input type="checkbox" onchange="updateChecklist()" class="check-item mt-0.5 accent-nmg-red w-4 h-4 rounded">
+            <div>
+              <div class="font-bold text-white">3. 英文官网 + 企业邮箱</div>
+              <p class="text-slate-400 mt-1">含英文隐私政策（Privacy Policy）与服务条款链接，禁用QQ/163邮箱。</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-2.5 p-3.5 rounded-lg bg-[#11131a] border border-nmg-border cursor-pointer hover:border-nmg-red transition">
+            <input type="checkbox" onchange="updateChecklist()" class="check-item mt-0.5 accent-nmg-red w-4 h-4 rounded">
+            <div>
+              <div class="font-bold text-white">4. 美金信用卡 + 对公账户</div>
+              <p class="text-slate-400 mt-1">用于支付苹果 $99/年、谷歌 $25 报名费，并绑定美国银行收充值款。</p>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Dual Store Step-by-Step Comparison -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+        <!-- Apple App Store Card -->
+        <div class="card-gradient border border-nmg-border rounded-xl p-5 space-y-4">
+          <div class="flex items-center justify-between border-b border-nmg-border pb-3">
+            <div>
+              <span class="text-[11px] font-bold text-sky-400 uppercase">iOS Ecosystem · 美区充值占比 65%+</span>
+              <h3 class="text-base font-extrabold text-white">🍎 苹果 App Store 上架 5 步走与省钱秘籍</h3>
+            </div>
+            <div class="text-right">
+              <div class="text-sm font-black text-white">$99 / 年</div>
+              <div class="text-[11px] text-emerald-400 font-bold">可申请 15% 减半抽成</div>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-lg bg-emerald-950/30 border border-emerald-500/40 text-xs space-y-1">
+            <div class="flex items-center justify-between font-bold text-emerald-300">
+              <span>💰 官方补贴：App Store 小型企业计划（苹果税从 30% 降至 15%）</span>
+              <a href="https://developer.apple.com/app-store/small-business-program/" target="_blank" rel="noopener noreferrer" class="underline hover:text-white shrink-0 ml-2">去官方申请 ↗</a>
+            </div>
+            <p class="text-slate-300">新注册的美国公司首年营收不满 100 万美金，后台一键报名后，观众每充值 $100 苹果只抽 $15，直接多赚 15% 纯利！</p>
+          </div>
+
+          <ol class="space-y-2.5 text-xs text-slate-300">
+            <li class="p-2.5 rounded bg-[#11131a] border border-nmg-border">
+              <strong class="text-white">1. 注册 Apple ID 并开双重认证：</strong>必须用企业域名邮箱注册并在 iPhone/Mac 上开启双重认证。
+            </li>
+            <li class="p-2.5 rounded bg-[#11131a] border border-nmg-border">
+              <strong class="text-white">2. 手机刷脸实名与填邓白氏码：</strong>下载官方 <code class="text-rose-400">Apple Developer</code> App，法人拿中国护照刷脸验证，填入美国公司 D-U-N-S 编码并付 $99。
+            </li>
+            <li class="p-2.5 rounded bg-[#11131a] border border-nmg-border">
+              <strong class="text-white">3. 商务后台绑美国银行与 W-9 税表：</strong>在 App Store Connect 填入美国银行账号和 EIN 税号，享受 0 预扣税全额结算。
+            </li>
+            <li class="p-2.5 rounded bg-[#11131a] border border-nmg-border">
+              <strong class="text-white">4. 配置短剧金币档位与包周订阅：</strong>录入内购商品（如 $9.9 金币包、$19.9/周 VIP自动续费）。
+            </li>
+            <li class="p-2.5 rounded bg-[#11131a] border border-nmg-border">
+              <strong class="text-white">5. 传包提审 + 留预充值测试号：</strong>年龄分级选 <strong>12+ 或 17+</strong>，必须在备注栏提供<strong>已充好金币的测试账号密码</strong>供审核员看剧。
+            </li>
+          </ol>
+        </div>
+
+        <!-- Google Play Card -->
+        <div class="card-gradient border border-nmg-border rounded-xl p-5 space-y-4">
+          <div class="flex items-center justify-between border-b border-nmg-border pb-3">
+            <div>
+              <span class="text-[11px] font-bold text-emerald-400 uppercase">Android Ecosystem · 全球覆盖广</span>
+              <h3 class="text-base font-extrabold text-white">🤖 谷歌 Google Play 上架 5 步走与豁免规则</h3>
+            </div>
+            <div class="text-right">
+              <div class="text-sm font-black text-white">$25 / 终身</div>
+              <div class="text-[11px] text-emerald-400 font-bold">前$100万享 15% 抽成</div>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-lg bg-sky-950/30 border border-sky-500/40 text-xs space-y-1">
+            <div class="flex items-center justify-between font-bold text-sky-300">
+              <span>🚀 企业号特权：豁免“20人连续14天封闭测试”紧箍咒！</span>
+              <a href="https://support.google.com/googleplay/android-developer/answer/10632485" target="_blank" rel="noopener noreferrer" class="underline hover:text-white shrink-0 ml-2">查看15%费率官方说明 ↗</a>
+            </div>
+            <p class="text-slate-300">个人开发者账号被强制要求找20个真人测试14天才能上架；但用<strong>美国公司+邓白氏编码注册的企业账号直接豁免</strong>，过审即可全球发布！</p>
+          </div>
+
+          <ol class="space-y-2.5 text-xs text-slate-300">
+            <li class="p-2.5 rounded bg-[#11131a] border border-nmg-border">
+              <strong class="text-white">1. 专机干净 IP 注册企业号：</strong>选择“组织（Organization）”，填入美国公司邓白氏编码并支付一次性 $25 规费。
+            </li>
+            <li class="p-2.5 rounded bg-[#11131a] border border-nmg-border">
+              <strong class="text-white">2. 组织身份与美国电话核验：</strong>上传美国公司注册证书、老板中国护照，接收美国手机号短信/语音验证码。
+            </li>
+            <li class="p-2.5 rounded bg-[#11131a] border border-nmg-border">
+              <strong class="text-white">3. 绑定付款资料与 15% 费率组：</strong>绑定美国对公银行，并在“关联账号组”登记享受前 100 万美金 15% 低抽成。
+            </li>
+            <li class="p-2.5 rounded bg-[#11131a] border border-nmg-border">
+              <strong class="text-white">4. 填写数据安全表单 (Data Safety)：</strong>如实勾选收集的设备归因 ID（如 Adjust/AppsFlyer 投流 SDK 数据）。
+            </li>
+            <li class="p-2.5 rounded bg-[#11131a] border border-nmg-border">
+              <strong class="text-white">5. 上传 AAB 格式安装包提审：</strong>首次提审耗时约 3-7 天，过审后切勿频繁更换收款卡或违规热更新。
+            </li>
+          </ol>
+        </div>
+
+      </div>
+
+      <!-- 5 Deadly Sins / Compliance Redlines for Short Drama Apps -->
+      <div class="card-gradient border border-nmg-red/50 rounded-xl p-5 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="px-2 py-0.5 bg-nmg-red text-white rounded text-xs">防封号必读</span>
+            <span>三、 短剧出海上架 5 大“生死合规红线”（踩中一条直接封号冻资）</span>
+          </h3>
+          <a href="https://developer.apple.com/app-store/review/guidelines/" target="_blank" rel="noopener noreferrer" class="text-xs text-nmg-redLight hover:underline">
+            Apple审核指南官方原文 ↗
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-3 text-xs">
+          <div class="p-3.5 rounded-lg bg-[#11131a] border-t-2 border-t-nmg-red border border-nmg-border space-y-1.5">
+            <div class="font-black text-nmg-redLight">红线 1：苹果 4.3 马甲包</div>
+            <div class="font-bold text-white">严禁一套代码换皮多发</div>
+            <p class="text-slate-400">同一套短剧代码只改图标名字重复上传，会被 AI 查重判定 4.3 垃圾应用，直接永久封停开发者账号。坚持“一司一号一包”。</p>
+          </div>
+          <div class="p-3.5 rounded-lg bg-[#11131a] border-t-2 border-t-nmg-red border border-nmg-border space-y-1.5">
+            <div class="font-black text-nmg-redLight">红线 2：谷歌环境关联</div>
+            <div class="font-bold text-white">严禁程序员混用翻墙电脑</div>
+            <p class="text-slate-400">登录过死号的电脑或公共 VPN 一旦登录新注册的美国公司谷歌号，会触发“连坐封号”。必须使用固定 IP 的紫鸟浏览器或独立云服务器。</p>
+          </div>
+          <div class="p-3.5 rounded-lg bg-[#11131a] border-t-2 border-t-nmg-red border border-nmg-border space-y-1.5">
+            <div class="font-black text-nmg-redLight">红线 3：苹果 3.1.1 切支付</div>
+            <div class="font-bold text-white">严禁在App内偷跳Stripe</div>
+            <p class="text-slate-400">商店版 App 内解锁剧集必须走苹果/谷歌原生内购（IAP）。严禁在包内暗藏 H5 第三方支付逃避 15% 抽成，违者秒封且冻结未提现余额。</p>
+          </div>
+          <div class="p-3.5 rounded-lg bg-[#11131a] border-t-2 border-t-nmg-red border border-nmg-border space-y-1.5">
+            <div class="font-black text-nmg-redLight">红线 4：诱导订阅扣费</div>
+            <div class="font-bold text-white">自动续费价格必须醒目</div>
+            <p class="text-slate-400">“首周 $0.99 次周自动续费 $19.99”必须在购买按钮旁用清晰字号标明扣费周期与取消路径，严禁藏在小字里欺诈扣款。</p>
+          </div>
+          <div class="p-3.5 rounded-lg bg-[#11131a] border-t-2 border-t-nmg-red border border-nmg-border space-y-1.5">
+            <div class="font-black text-nmg-redLight">红线 5：BGM与擦边尺度</div>
+            <div class="font-bold text-white">提审剧目需干净无侵权</div>
+            <p class="text-slate-400">提审包前几部短剧严禁出现过度血腥、虐待、大尺度色情及未授权热门华语/欧美流行音乐，等过审上架后再逐步放出常规爽剧。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         MODULE 4: 官方政策、补贴激励与权威办理直达导航库
+    ====================================================================== -->
+    <section id="mod4" class="module-section space-y-6 searchable-block">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b-2 border-nmg-red pb-3 gap-2">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-nmg-red">Module 04 · Official Policy, Subsidies & Portal Directory</span>
+          <h2 class="text-xl sm:text-2xl font-black text-white mt-0.5">官方政策、佣金补贴激励与权威办理直达导航库</h2>
+        </div>
+        <span class="text-xs text-amber-400 font-semibold">点击卡片按钮可直接跳转美国政府/苹果/谷歌官方原出处 ↗</span>
+      </div>
+
+      <!-- Category Filter Pills for Links -->
+      <div class="flex flex-wrap gap-2 text-xs">
+        <button onclick="filterLinks('all')" class="link-filter active-tab px-3 py-1 rounded-full border border-nmg-border bg-[#15171e] text-slate-300 font-bold">全部官方链接 (14)</button>
+        <button onclick="filterLinks('subsidy')" class="link-filter px-3 py-1 rounded-full border border-nmg-border bg-[#15171e] text-emerald-400 font-bold">💰 平台15%佣金减免与州补贴 (3)</button>
+        <button onclick="filterLinks('gov')" class="link-filter px-3 py-1 rounded-full border border-nmg-border bg-[#15171e] text-sky-400 font-bold">🏛️ 美国国税局IRS与州政府官网 (5)</button>
+        <button onclick="filterLinks('store')" class="link-filter px-3 py-1 rounded-full border border-nmg-border bg-[#15171e] text-amber-400 font-bold">📱 邓白氏与双端商店审核政策 (4)</button>
+        <button onclick="filterLinks('bank')" class="link-filter px-3 py-1 rounded-full border border-nmg-border bg-[#15171e] text-purple-400 font-bold">💳 数字银行与发卡开户入口 (2)</button>
+      </div>
+
+      <!-- Official Links Grid -->
+      <div id="linksGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!-- 1. Apple Small Business Program -->
+        <div data-cat="subsidy" class="link-card card-gradient border border-emerald-500/40 rounded-xl p-5 flex flex-col justify-between hover:border-emerald-400 transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 rounded text-[10px] font-bold">官方佣金减半补贴</span>
+              <span class="text-[11px] text-slate-400">Apple Developer</span>
+            </div>
+            <h4 class="text-sm font-extrabold text-white">Apple App Store 小型企业计划 (15% 抽成)</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              苹果官方针对年收入不足 100 万美元开发者的核心扶持补贴政策。报名获批后，短剧内购（IAP）和订阅抽成直接从 <strong>30% 砍半降至 15%</strong>。
+            </p>
+          </div>
+          <a href="https://developer.apple.com/app-store/small-business-program/" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            <span>直达苹果官方补贴申请出处</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- 2. Google Play 15% Service Fee -->
+        <div data-cat="subsidy" class="link-card card-gradient border border-emerald-500/40 rounded-xl p-5 flex flex-col justify-between hover:border-emerald-400 transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 rounded text-[10px] font-bold">官方费率减免政策</span>
+              <span class="text-[11px] text-slate-400">Google Play Console</span>
+            </div>
+            <h4 class="text-sm font-extrabold text-white">Google Play 15% 服务费减免官方规则</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              谷歌官方规定：所有开发者每年赚取的前 100 万美元收入，以及所有的自动续费订阅（Subscriptions）收入，均享受 <strong>15% 优惠服务费率</strong>。
+            </p>
+          </div>
+          <a href="https://support.google.com/googleplay/android-developer/answer/10632485" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            <span>直达谷歌官方服务费政策出处</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- 3. Delaware Small Business Incentives -->
+        <div data-cat="subsidy" class="link-card card-gradient border border-emerald-500/40 rounded-xl p-5 flex flex-col justify-between hover:border-emerald-400 transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 rounded text-[10px] font-bold">州政府税收激励</span>
+              <span class="text-[11px] text-slate-400">State of Delaware</span>
+            </div>
+            <h4 class="text-sm font-extrabold text-white">特拉华州商业激励与免税政策官网</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              特拉华州官方小企业局门户，提供州外经营免征州企业所得税说明、无销售税优惠以及未来在美实地雇人的研发/创业资金激励指南。
+            </p>
+          </div>
+          <a href="https://business.delaware.gov/incentives/" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            <span>直达特拉华州激励政策官网</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- 4. IRS EIN Application & Form SS-4 -->
+        <div data-cat="gov" class="link-card card-gradient border border-nmg-border rounded-xl p-5 flex flex-col justify-between hover:border-nmg-red transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-sky-500/20 text-sky-300 rounded text-[10px] font-bold">美国国税局 IRS</span>
+              <span class="text-[11px] text-slate-400">联邦税号申请</span>
+            </div>
+            <h4 class="text-sm font-extrabold text-white">IRS 申请雇主识别号 (EIN) 与 SS-4 表格出处</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              美国国税局官方指南：无美国 SSN 的外国人如何通过填写 Form SS-4 并通过国际传真（Fax）免费申请美国公司 9 位税号。
+            </p>
+          </div>
+          <a href="https://www.irs.gov/businesses/small-businesses-self-employed/how-to-apply-for-an-ein" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2 px-3 rounded-lg bg-[#1e2230] hover:bg-nmg-red text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            <span>直达 IRS 税号官方指南</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- 5. IRS Form 5472 Compliance -->
+        <div data-cat="gov" class="link-card card-gradient border border-nmg-red/50 rounded-xl p-5 flex flex-col justify-between hover:border-nmg-red transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-nmg-red/20 text-nmg-redLight rounded text-[10px] font-bold">核心税务红线</span>
+              <span class="text-[11px] text-slate-400">IRS 强制披露</span>
+            </div>
+            <h4 class="text-sm font-extrabold text-white">IRS Form 5472 外资持股 25% 申报官方要求</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              外资单人 LLC 每年必填的税务披露表官方说明。明确规定漏报或迟报将面临最低 <strong>$25,000 美元</strong>的法定行政罚款。
+            </p>
+          </div>
+          <a href="https://www.irs.gov/forms-pubs/about-form-5472" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2 px-3 rounded-lg bg-[#1e2230] hover:bg-nmg-red text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            <span>直达 IRS Form 5472 官方页</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- 6. FinCEN BOI Exemption Rule -->
+        <div data-cat="gov" class="link-card card-gradient border border-nmg-border rounded-xl p-5 flex flex-col justify-between hover:border-nmg-red transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-sky-500/20 text-sky-300 rounded text-[10px] font-bold">美国财政部 FinCEN</span>
+              <span class="text-[11px] text-slate-400">最新合规减负</span>
+            </div>
+            <h4 class="text-sm font-extrabold text-white">FinCEN 受益所有人 (BOI) 豁免规则官方公告</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              美国财政部金融犯罪执法局官网：确认在美国境内注册成立的 Domestic Reporting Companies 现已豁免提交 BOI 报告。
+            </p>
+          </div>
+          <a href="https://www.fincen.gov/boi" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2 px-3 rounded-lg bg-[#1e2230] hover:bg-nmg-red text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            <span>直达美国财政部 FinCEN 官网</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- 7. Wyoming Secretary of State -->
+        <div data-cat="gov" class="link-card card-gradient border border-nmg-border rounded-xl p-5 flex flex-col justify-between hover:border-nmg-red transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-sky-500/20 text-sky-300 rounded text-[10px] font-bold">州政府注册处</span>
+              <span class="text-[11px] text-slate-400">怀俄明州官网</span>
+            </div>
+            <h4 class="text-sm font-extrabold text-white">怀俄明州州务卿商业中心 (Wyoming SOS)</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              查询怀俄明州 LLC 公司名称是否可用、核验公司注册证书真伪、以及每年在线缴纳 $60 年审费的州政府官方网站。
+            </p>
+          </div>
+          <a href="https://sos.wyo.gov/Business/" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2 px-3 rounded-lg bg-[#1e2230] hover:bg-nmg-red text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            <span>直达怀俄明州务卿官网</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- 8. Delaware Division of Corporations -->
+        <div data-cat="gov" class="link-card card-gradient border border-nmg-border rounded-xl p-5 flex flex-col justify-between hover:border-nmg-red transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-sky-500/20 text-sky-300 rounded text-[10px] font-bold">州政府注册处</span>
+              <span class="text-[11px] text-slate-400">特拉华州官网</span>
+            </div>
+            <h4 class="text-sm font-extrabold text-white">特拉华州公司注册署官网 (Delaware Corp)</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              特拉华州政府官方企业注册与查册系统，支持在线查名、验证良好存续证明（Good Standing）及缴纳年度特许经营税。
+            </p>
+          </div>
+          <a href="https://corp.delaware.gov/" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2 px-3 rounded-lg bg-[#1e2230] hover:bg-nmg-red text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            <span>直达特拉华州公司署官网</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- 9. Apple D-U-N-S Lookup & Free Request -->
+        <div data-cat="store" class="link-card card-gradient border border-nmg-border rounded-xl p-5 flex flex-col justify-between hover:border-nmg-red transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-amber-500/20 text-amber-300 rounded text-[10px] font-bold">企业征信认证</span>
+              <span class="text-[11px] text-slate-400">D-U-N-S 免费通道</span>
+            </div>
+            <h4 class="text-sm font-extrabold text-white">苹果开发者专用邓白氏编码免费申请通道</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              苹果与邓白氏联合提供的官方绿色通道，输入美国或香港公司注册信息即可免费申请 9 位 D-U-N-S 编码，无需花高价找黑中介。
+            </p>
+          </div>
+          <a href="https://developer.apple.com/support/D-U-N-S/" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2 px-3 rounded-lg bg-[#1e2230] hover:bg-nmg-red text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            <span>直达苹果邓白氏官方通道</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- 10. Dun & Bradstreet Global Official -->
+        <div data-cat="store" class="link-card card-gradient border border-nmg-border rounded-xl p-5 flex flex-col justify-between hover:border-nmg-red transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-amber-500/20 text-amber-300 rounded text-[10px] font-bold">全球企业征信</span>
+              <span class="text-[11px] text-slate-400">Dun & Bradstreet</span>
+            </div>
+            <h4 class="text-sm font-extrabold text-white">邓白氏美国官网 (D&B Get a D-U-N-S)</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              用于查询、更新美国公司地址资料或申请加急下号的邓白氏美国官方网站（同时适用 Google Play 与 Meta 代理商资质验证）。
+            </p>
+          </div>
+          <a href="https://www.dnb.com/duns/get-a-duns.html" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2 px-3 rounded-lg bg-[#1e2230] hover:bg-nmg-red text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            <span>直达邓白氏 D&B 官方网站</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- 11. Apple App Review Guidelines -->
+        <div data-cat="store" class="link-card card-gradient border border-nmg-border rounded-xl p-5 flex flex-col justify-between hover:border-nmg-red transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-amber-500/20 text-amber-300 rounded text-[10px] font-bold">上架审核铁律</span>
+              <span class="text-[11px] text-slate-400">Guideline 3.1.1 / 4.3</span>
+            </div>
+            <h4 class="text-sm font-extrabold text-white">Apple App Store 审核指南官方完整版</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              技术与产品必读：重点查阅 3.1.1（应用内购买与自动续费订阅披露要求）与 4.3（Spam 马甲包同质化查重）官方红线原文。
+            </p>
+          </div>
+          <a href="https://developer.apple.com/app-store/review/guidelines/" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2 px-3 rounded-lg bg-[#1e2230] hover:bg-nmg-red text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            <span>直达苹果审核指南官方原文</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- 12. Google Play Organization Verification -->
+        <div data-cat="store" class="link-card card-gradient border border-nmg-border rounded-xl p-5 flex flex-col justify-between hover:border-nmg-red transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-amber-500/20 text-amber-300 rounded text-[10px] font-bold">谷歌强制新规</span>
+              <span class="text-[11px] text-slate-400">Google Play Policy</span>
+            </div>
+            <h4 class="text-sm font-extrabold text-white">Google Play 开发者组织验证与地址公示要求</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              谷歌官方关于企业开发者账号实名验证、邓白氏资料比对、以及在应用商店向全球用户公开显示公司注册地址的政策原文。
+            </p>
+          </div>
+          <a href="https://support.google.com/googleplay/android-developer/answer/13628312" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2 px-3 rounded-lg bg-[#1e2230] hover:bg-nmg-red text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            <span>直达谷歌组织验证政策原文</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- 13. Mercury Bank -->
+        <div data-cat="bank" class="link-card card-gradient border border-nmg-border rounded-xl p-5 flex flex-col justify-between hover:border-nmg-red transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-purple-500/20 text-purple-300 rounded text-[10px] font-bold">美国数字银行</span>
+              <span class="text-[11px] text-slate-400">无限虚拟卡</span>
+            </div>
+            <h4 class="text-sm font-extrabold text-white">Mercury 水星银行在线开户官网</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              支持非美国居民持美国 LLC + EIN 远程申请美国对公支票账户，零月费，后台可免费批量生成美国本土 Visa/Mastercard 广告投流虚拟卡。
+            </p>
+          </div>
+          <a href="https://mercury.com/" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2 px-3 rounded-lg bg-[#1e2230] hover:bg-nmg-red text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            <span>直达 Mercury 银行官网</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- 14. Airwallex -->
+        <div data-cat="bank" class="link-card card-gradient border border-nmg-border rounded-xl p-5 flex flex-col justify-between hover:border-nmg-red transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-purple-500/20 text-purple-300 rounded text-[10px] font-bold">跨境多币种金融</span>
+              <span class="text-[11px] text-slate-400">香港+美国双通</span>
+            </div>
+            <h4 class="text-sm font-extrabold text-white">Airwallex 空中云汇全球收款与云汇 Visa 卡</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              对香港公司与美国公司极度友好，支持一键生成美元/港币收款账户接收 Apple/Google 分成，并提供多卡段高返点广告虚拟卡。
+            </p>
+          </div>
+          <a href="https://www.airwallex.com/" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2 px-3 rounded-lg bg-[#1e2230] hover:bg-nmg-red text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            <span>直达 Airwallex 官方网站</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-nmg-border bg-[#0a0b0e] py-6 px-4 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <span>© 2026 NEW MEDIA GROUP (新美集团) · 海外合规与短剧/广告出海立项组专用</span>
+      <span>提示：所有外部官方链接均指向美国政府 (.gov) 及 Apple / Google 官方域名，点击将在新窗口打开</span>
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // Switch between modules or show all
+    function switchModule(modId) {
+      const sections = document.querySelectorAll('.module-section');
+      const tabs = document.querySelectorAll('.nav-tab');
+
+      tabs.forEach(t => t.classList.remove('active-tab'));
+      document.getElementById('tab-' + modId).classList.add('active-tab');
+
+      sections.forEach(sec => {
+        if (modId === 'all' || sec.id === modId) {
+          sec.style.display = 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Filter Official Links in Module 4
+    function filterLinks(category) {
+      const cards = document.querySelectorAll('.link-card');
+      const buttons = document.querySelectorAll('.link-filter');
+
+      buttons.forEach(btn => btn.classList.remove('active-tab'));
+      event.currentTarget.classList.add('active-tab');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.cat === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Update Pre-flight Checklist Progress
+    function updateChecklist() {
+      const checks = document.querySelectorAll('.check-item');
+      let checkedCount = 0;
+      checks.forEach(c => { if (c.checked) checkedCount++; });
+      const label = document.getElementById('checklistProgress');
+      label.textContent = `已完成 ${checkedCount} / 4 项`;
+      if (checkedCount === 4) {
+        label.textContent = '🎉 准备就绪！可立即提交双端商店注册';
+      }
+    }
+
+    // Global keyword search filter
+    function handleSearch(query) {
+      const q = query.trim().toLowerCase();
+      const sections = document.querySelectorAll('.module-section');
+      if (!q) {
+        sections.forEach(s => s.style.display = 'block');
+        return;
+      }
+      sections.forEach(sec => {
+        const text = sec.innerText.toLowerCase();
+        sec.style.display = text.includes(q) ? 'block' : 'none';
+      });
+    }
+
+    // Copy Executive Summary for Boss Presentation
+    function copyExecutiveSummary() {
+      const summaryText = `【向领导汇报：海外公司落地与短剧/广告出海核心结论】
+1. 上架地区与注册地无需一致：香港公司也能上架美区苹果和谷歌商店；但为了拿到美国本土Stripe最高支付成功率、0预扣税结算（W-9表）以及Google商店显示美国本土地址，建议在怀俄明州或特拉华州注册一家美国LLC。
+2. 零签证100%控股：无需美国签证，全线上3-4周即可办妥美国营业执照、EIN税号、邓白氏编码及Mercury/Airwallex银行账户（可免费开几百张虚拟卡绑广告户投流）。
+3. 税务与官方补贴利好：
+   - 只要团队在国内远程办公（美国无办公室无雇员），美国LLC合法享受【0%联邦企业所得税】（注意：每年4月15日前必须交Form 5472披露表，防$25,000罚款）。
+   - 申请苹果小型企业计划与谷歌首100万美金优惠后，双端商店抽成均可从30%直接砍半至【15%】。
+4. 黄金架构建议：用集团现有的【香港分公司 100% 控股美国 LLC】，兼顾资金自由调拨与税务隔离。`;
+
+      const textarea = document.createElement('textarea');
+      textarea.value = summaryText;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').textContent = '汇报摘要已复制！可直接粘贴发给老板';
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 3000);
+    }
+  </script>
+</body>
+</html>
